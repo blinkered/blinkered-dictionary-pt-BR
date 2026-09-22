@@ -12,15 +12,15 @@ collection rather than reuse its record only has to put the file back where the 
 
 | collection | tokens | what it is | where it came from |
 | --- | ---: | --- | --- |
-| `fw2` | 1,225,273,200 | FineWeb-2 Portuguese — a web crawl nobody here made | [fineweb2-por.parquet](https://huggingface.co/datasets/HuggingFaceFW/fineweb-2/resolve/main/data/por_Latn/train/000_00000.parquet) |
-| `wiki:pt-BR` | 423,787,569 | Portuguese Wikipedia — modern encyclopedic prose | [ptwiki.xml.bz2](https://dumps.wikimedia.org/ptwiki/latest/ptwiki-latest-pages-articles.xml.bz2) |
-| `ia` | 79,968,603 | Internet Archive Portuguese books — literature, and the register a newspaper never reaches | [archive-pt-BR](https://archive.org/search?query=mediatype%3Atexts+AND+language%3A%22Portuguese%22) |
-| `gut` | 14,858,875 | Project Gutenberg Portuguese, 651 texts | [gutenberg-pt-BR](https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv) |
-| `wikisource:pt-BR` | 13,836,742 | Portuguese Wikisource — same Wikimedia family, so it corroborates rather than counts | [ptwikisource.xml.bz2](https://dumps.wikimedia.org/ptwikisource/latest/ptwikisource-latest-pages-articles.xml.bz2) |
-| `lz:por_news_2023_1M` | 3,739,655 | Leipzig por_news_2023_1M — modern news, cited by the page each sentence came from | [por_news_2023_1M](https://downloads.wortschatz-leipzig.de/corpora/por_news_2023_1M.tar.gz) |
-| `lz:por_news_2024_1M` | 3,494,250 | Leipzig por_news_2024_1M — modern news, cited by the page each sentence came from | [por_news_2024_1M](https://downloads.wortschatz-leipzig.de/corpora/por_news_2024_1M.tar.gz) |
-| `tat` | 2,598,407 | Tatoeba Portuguese — contemporary and conversational | [por_sentences.tsv](https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2) |
-| `ebible:porbr2018` | 498,433 | Almeida Revista 2018 — a family nothing else here belongs to | [porbr2018_vpl.txt](https://ebible.org/Scriptures/porbr2018_vpl.zip) |
+| `fw2` | 1,225,273,200 |  | — |
+| `wiki:pt-BR` | 423,787,569 |  | — |
+| `ia` | 138,999,116 | Internet Archive Portuguese books — literature, and the register a newspaper never reaches | [archive-pt-BR](https://archive.org/search?query=mediatype%3Atexts+AND+language%3A%22Portuguese%22) |
+| `gut` | 14,858,875 |  | — |
+| `wikisource:pt-BR` | 13,836,742 |  | — |
+| `lz:por_news_2023_1M` | 3,739,655 |  | — |
+| `lz:por_news_2024_1M` | 3,494,250 |  | — |
+| `tat` | 2,598,407 |  | — |
+| `ebible:porbr2018` | 498,433 |  | — |
 
 Totals are playable tokens after folding, not bytes. A collection missing from this table was
 never scanned; one present with no link was fetched by hand and its path is given instead.
