@@ -10,6 +10,7 @@ import { alphabetFor } from '@blinkered/engine'
 import {
   build,
   checkDump,
+  trustedSpellings,
   readEvidence,
   domainOf,
   headSize,
@@ -45,12 +46,19 @@ if (existsSync(HARVESTING)) {
   )
 }
 
-const candidates = new Set(
-  readFileSync(CANDIDATES, 'utf8')
-    .split('\n')
-    .slice(1)
-    .filter(Boolean)
-    .map((line) => line.split('\t')[0]),
+const rows = readFileSync(CANDIDATES, 'utf8')
+  .split('\n')
+  .slice(1)
+  .filter(Boolean)
+  .map((line) => line.split('\t'))
+const candidates = new Set(rows.map(([word]) => word))
+// How each word is written, where folding lost something: ABADIA is written ABADÍA, and
+// Vietnamese ACÒNG is A CÒNG. Only the candidate list knows, so it travels into words.txt from
+// here; reading the first column alone once cost every attested list its accents. Only marks
+// many words share are trusted, because the column is a corpus's guess and corpora are noisy.
+const spelled = trustedSpellings(
+  rows.filter((row) => row[1] !== undefined),
+  new Set(Object.keys(alphabetFor(LANGUAGE).weights)),
 )
 // The candidate list is somebody else's dictionary, and it has to stay somebody else's. If
 // `blinkered` borrows its word lists back from these repositories, this path fills with our own
@@ -144,7 +152,7 @@ if (HARVEST !== undefined) {
 }
 
 const today = new Date().toISOString().slice(0, 10)
-const built = build(LANGUAGE, candidates, results, COMMON_CUT, prior)
+const built = build(LANGUAGE, candidates, results, COMMON_CUT, prior, spelled)
 if (built.reused.length > 0) {
   process.stderr.write(`  ${'reused from the record'.padEnd(22)} ${built.reused.join(' ')}\n`)
 }
